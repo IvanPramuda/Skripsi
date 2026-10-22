@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Deteksi Video
+{% endblock %}
+
+{% block header %}
+Deteksi Video
+{% endblock %}
+
+{% block content %}
+
+<div class="page-card">
+
+    <h2>Upload Video</h2>
+
+    <p>
+        Upload video untuk dilakukan deteksi objek menggunakan model YOLOv7.
+    </p>
+
+    <form action="{{ url_for('upload_video') }}"
+          method="POST"
+          enctype="multipart/form-data"
+          class="upload-form">
+
+        <input
+            type="file"
+            name="file"
+            accept="video/*"
+            required>
+
+        <button type="submit" class="btn">
+            Mulai Deteksi
+        </button>
+
+    </form>
+
+</div>
+
+{% if video_filename %}
+
+<div class="page-card">
+
+    <h2>Streaming Hasil Deteksi</h2>
+
+    <div class="video-box">
+
+        <img
+            src="{{ url_for('stream_video', filename=video_filename) }}"
+            class="video-stream">
+
+    </div>
+
+</div>
+
+{% endif %}
+
+{% if summary %}
+
+<div class="summary-grid">
+
+    <div class="summary-box">
+
+        <h3>Total Objek</h3>
+
+        <h2>{{ summary.total }}</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Babi Hutan</h3>
+
+        <h2>{{ summary.babi }}</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Tikus</h3>
+
+        <h2>{{ summary.tikus }}</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Confidence Tertinggi</h3>
+
+        <h2>{{ summary.highest_confidence }}%</h2>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+<div class="page-card">
+
+    <h2>Informasi Penggunaan</h2>
+
+    <ul class="info-list">
+
+        <li>Format video yang didukung: MP4, AVI, MOV.</li>
+
+        <li>Semakin tinggi kualitas video maka hasil deteksi semakin baik.</li>
+
+        <li>Streaming dilakukan langsung pada browser tanpa mengunduh video hasil.</li>
+
+        <li>Bounding Box akan muncul pada setiap objek yang berhasil dideteksi.</li>
+
+    </ul>
+
+</div>
+
+{% endblock %}

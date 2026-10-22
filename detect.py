@@ -28,7 +28,7 @@ def detect(save_img=False):
     # Initialize
     set_logging()
     device = select_device(opt.device)
-    half = device.type != 'cpu'  # half precision only supported on CUDA
+    half = device.type != 'gpu'  # half precision only supported on CUDA
 
     # Load model
     model = attempt_load(weights, map_location=device)  # load FP32 model
@@ -61,7 +61,7 @@ def detect(save_img=False):
     colors = [[random.randint(0, 255) for _ in range(3)] for _ in names]
 
     # Run inference
-    if device.type != 'cpu':
+    if device.type != 'gpu':
         model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))  # run once
     old_img_w = old_img_h = imgsz
     old_img_b = 1

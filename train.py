@@ -8,6 +8,8 @@ from copy import deepcopy
 from pathlib import Path
 from threading import Thread
 
+import torch
+torch.backends.cudnn.enabled = True
 import numpy as np
 import torch.distributed as dist
 import torch.nn as nn
@@ -58,7 +60,7 @@ def train(hyp, opt, device, tb_writer=None):
 
     # Configure
     plots = not opt.evolve  # create plots
-    cuda = device.type != 'cpu'
+    cuda = device.type != 'gpu'
     init_seeds(2 + rank)
     with open(opt.data) as f:
         data_dict = yaml.load(f, Loader=yaml.SafeLoader)  # data dict

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistem Deteksi Hama{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>YOLOv7</h2>
+
+            <p>Deteksi Hama</p>
+
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+
+            <a href="{{ url_for('image') }}">🖼 Deteksi Gambar</a>
+
+            <a href="{{ url_for('video') }}">🎥 Deteksi Video</a>
+
+            <a href="{{ url_for('realtime_page') }}">📷 Realtime</a>
+
+            <a href="{{ url_for('history') }}">📄 Riwayat</a>
+
+            <a href="{{ url_for('about') }}">ℹ Tentang</a>
+
+        </nav>
+
+    </aside>
+
+    <!-- CONTENT -->
+
+    <main class="content">
+
+        <header class="topbar">
+
+            <h1>
+
+                {% block header %}
+
+                Sistem Deteksi Hama Kelapa Sawit
+
+                {% endblock %}
+
+            </h1>
+
+        </header>
+
+        <section class="page-content">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

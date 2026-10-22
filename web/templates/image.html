@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Deteksi Gambar
+{% endblock %}
+
+{% block header %}
+Deteksi Gambar
+{% endblock %}
+
+{% block content %}
+
+<div class="page-card">
+
+    <h2>Upload Gambar</h2>
+
+    <p>
+        Pilih gambar yang akan dideteksi menggunakan model YOLOv7.
+    </p>
+
+    <form action="{{ url_for('upload_image') }}"
+          method="POST"
+          enctype="multipart/form-data"
+          class="upload-form">
+
+        <input
+            type="file"
+            name="file"
+            accept="image/*"
+            required>
+
+        <button type="submit" class="btn">
+            Deteksi Gambar
+        </button>
+
+    </form>
+
+</div>
+
+{% if image_file %}
+
+<div class="image-result">
+
+    <div class="result-card">
+
+        <h3>Gambar Asli</h3>
+
+        <img
+            src="{{ url_for('static', filename=original_image) }}"
+            class="preview-image">
+
+    </div>
+
+    <div class="result-card">
+
+        <h3>Hasil Deteksi</h3>
+
+        <img
+            src="{{ url_for('static', filename=image_file) }}"
+            class="preview-image">
+
+    </div>
+
+</div>
+
+<div class="summary-grid">
+
+    <div class="summary-box">
+
+        <h3>Jumlah Objek</h3>
+
+        <h2>{{ summary.total }}</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Babi Hutan</h3>
+
+        <h2>{{ summary.babi }}</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Tikus</h3>
+
+        <h2>{{ summary.tikus }}</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Confidence Tertinggi</h3>
+
+        <h2>{{ summary.highest_confidence }}%</h2>
+
+    </div>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Hasil Deteksi</h2>
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>Objek</th>
+
+                <th>Confidence</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for item in detections %}
+
+            <tr>
+
+                <td>{{ loop.index }}</td>
+
+                <td>{{ item.label }}</td>
+
+                <td>{{ item.confidence }} %</td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endif %}
+
+<div class="page-card">
+
+    <h2>Informasi</h2>
+
+    <ul class="info-list">
+
+        <li>Format gambar yang didukung: JPG, JPEG, PNG.</li>
+
+        <li>Resolusi tinggi memberikan hasil deteksi yang lebih baik.</li>
+
+        <li>Confidence menunjukkan tingkat keyakinan model terhadap objek yang terdeteksi.</li>
+
+    </ul>
+
+</div>
+
+{% endblock %}

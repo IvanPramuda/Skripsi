@@ -1,0 +1,285 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Tentang Sistem
+{% endblock %}
+
+{% block header %}
+Tentang Sistem
+{% endblock %}
+
+{% block content %}
+
+<div class="page-card">
+
+    <h2>Sistem Deteksi Hama Babi Hutan dan Tikus</h2>
+
+    <p>
+
+        Sistem ini merupakan implementasi algoritma <b>YOLOv7</b> untuk
+        mendeteksi hama babi hutan dan tikus pada perkebunan kelapa sawit.
+        Sistem mampu melakukan pendeteksian melalui gambar, video, maupun
+        kamera secara realtime sehingga proses identifikasi hama menjadi
+        lebih cepat dan efisien.
+
+    </p>
+
+</div>
+
+<div class="summary-grid">
+
+    <div class="summary-box">
+
+        <h3>Metode</h3>
+
+        <h2>YOLOv7</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Framework</h3>
+
+        <h2>PyTorch</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Bahasa</h3>
+
+        <h2>Python</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Web</h3>
+
+        <h2>Flask</h2>
+
+    </div>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Kelas Objek</h2>
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>Nama Objek</th>
+
+                <th>Keterangan</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>1</td>
+
+                <td>Babi Hutan</td>
+
+                <td>Hama utama perkebunan kelapa sawit.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>2</td>
+
+                <td>Tikus</td>
+
+                <td>Hama yang menyerang buah dan tanaman kelapa sawit.</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Alur Sistem</h2>
+
+    <ol class="info-list">
+
+        <li>Pengguna memilih menu deteksi.</li>
+
+        <li>Mengunggah gambar, video atau menggunakan kamera realtime.</li>
+
+        <li>Model YOLOv7 memproses input.</li>
+
+        <li>Sistem melakukan Object Detection.</li>
+
+        <li>Bounding Box dan Confidence ditampilkan.</li>
+
+        <li>Hasil deteksi disimpan pada riwayat.</li>
+
+    </ol>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Fitur Sistem</h2>
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+
+                <th>Fitur</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>Deteksi Gambar</td>
+
+                <td>✓</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Deteksi Video</td>
+
+                <td>✓</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Realtime Webcam Laptop</td>
+
+                <td>✓</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Realtime Kamera HP</td>
+
+                <td>✓</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Riwayat Deteksi</td>
+
+                <td>✓</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Download CSV</td>
+
+                <td>✓</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Spesifikasi Model</h2>
+
+    <table class="table">
+
+        <tbody>
+
+            <tr>
+
+                <th>Model</th>
+
+                <td>YOLOv7 Tiny</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Resolusi Input</th>
+
+                <td>640 × 640</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Confidence Threshold</th>
+
+                <td>0.50</td>
+
+            </tr>
+
+            <tr>
+
+                <th>IoU Threshold</th>
+
+                <td>0.45</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Framework</th>
+
+                <td>PyTorch</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Website</th>
+
+                <td>Flask</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Kesimpulan</h2>
+
+    <p>
+
+        Website ini dirancang sebagai media implementasi model YOLOv7
+        sehingga pengguna dapat melakukan pendeteksian hama babi hutan
+        dan tikus secara mudah melalui antarmuka berbasis web.
+
+    </p>
+
+</div>
+
+{% endblock %}

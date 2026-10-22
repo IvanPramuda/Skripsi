@@ -1,0 +1,14 @@
+names:
+- Babi hutan
+- Tikus
+nc: 2
+roboflow:
+  license: CC BY 4.0
+  project: labell-c28pa
+  url: https://universe.roboflow.com/m-ivan-pramuda/labell-c28pa/dataset/1
+  version: 1
+  workspace: m-ivan-pramuda
+train: labell-1/train/images
+val: labell-1/valid/images
+test: labell-1/test/images
+

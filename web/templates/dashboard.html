@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block header %}
+Dashboard Sistem Deteksi Hama
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <div class="hero">
+
+        <h2>
+            Sistem Deteksi Hama Babi Hutan dan Tikus
+        </h2>
+
+        <p>
+            Website ini merupakan implementasi model <b>YOLOv7</b> untuk
+            mendeteksi hama babi hutan dan tikus pada area perkebunan kelapa sawit
+            secara otomatis melalui gambar, video, maupun kamera realtime.
+        </p>
+
+    </div>
+
+    <div class="card-grid">
+
+        <div class="card">
+
+            <h3>🖼 Deteksi Gambar</h3>
+
+            <p>
+                Melakukan deteksi objek pada file gambar.
+            </p>
+
+            <a href="{{ url_for('image') }}" class="btn">
+                Buka Menu
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>🎥 Deteksi Video</h3>
+
+            <p>
+                Melakukan deteksi objek pada video.
+            </p>
+
+            <a href="{{ url_for('video') }}" class="btn">
+                Buka Menu
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>📷 Realtime</h3>
+
+            <p>
+                Deteksi objek secara realtime menggunakan webcam laptop
+                maupun kamera HP.
+            </p>
+
+            <a href="{{ url_for('realtime_page') }}" class="btn">
+                Buka Menu
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>📄 Riwayat</h3>
+
+            <p>
+                Menampilkan riwayat hasil deteksi yang telah dilakukan.
+            </p>
+
+            <a href="{{ url_for('history') }}" class="btn">
+                Buka Menu
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <h3>Target Deteksi</h3>
+
+            <ul>
+
+                <li>🐗 Babi Hutan</li>
+
+                <li>🐀 Tikus</li>
+
+            </ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Metode</h3>
+
+            <ul>
+
+                <li>YOLOv7 Tiny</li>
+
+                <li>Object Detection</li>
+
+                <li>Deep Learning</li>
+
+            </ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Input Sistem</h3>
+
+            <ul>
+
+                <li>Gambar</li>
+
+                <li>Video</li>
+
+                <li>Realtime Camera</li>
+
+            </ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Output Sistem</h3>
+
+            <ul>
+
+                <li>Bounding Box</li>
+
+                <li>Confidence</li>
+
+                <li>Jumlah Objek</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="description">
+
+        <h3>Tentang Sistem</h3>
+
+        <p>
+
+            Sistem ini dibangun untuk membantu proses pendeteksian hama
+            babi hutan dan tikus pada perkebunan kelapa sawit menggunakan
+            algoritma YOLOv7. Pengguna dapat melakukan deteksi melalui
+            gambar, video maupun kamera secara realtime sehingga proses
+            identifikasi hama menjadi lebih cepat dan efisien.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

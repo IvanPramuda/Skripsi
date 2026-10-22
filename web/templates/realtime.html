@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Realtime Detection
+{% endblock %}
+
+{% block header %}
+Realtime Detection
+{% endblock %}
+
+{% block content %}
+
+<div class="page-card">
+
+    <h2>Realtime Detection</h2>
+
+    <p>
+        Pilih sumber kamera yang akan digunakan untuk melakukan deteksi objek secara realtime.
+    </p>
+
+</div>
+
+<div class="camera-grid">
+
+    <div class="page-card">
+
+        <h3>Webcam Laptop</h3>
+
+        <p>
+            Gunakan kamera bawaan laptop atau webcam USB.
+        </p>
+
+        <button
+            class="btn"
+            onclick="changeCamera('pc')">
+
+            Gunakan Webcam Laptop
+
+        </button>
+
+    </div>
+
+    <div class="page-card">
+
+        <h3>Kamera HP</h3>
+
+        <p>
+            Masukkan alamat IP Webcam atau DroidCam.
+        </p>
+
+        <form action="{{ url_for('set_camera') }}" method="POST">
+
+            <input
+                type="text"
+                name="ip"
+                placeholder="http://192.168.1.100:4747/video"
+                class="text-input">
+
+            <button
+                class="btn"
+                type="submit">
+
+                Simpan IP
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <button
+            class="btn"
+            onclick="changeCamera('hp')">
+
+            Gunakan Kamera HP
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Live Detection</h2>
+
+    <div class="video-container">
+
+        <img
+            id="live-stream"
+            src="{{ url_for('realtime_pc') }}"
+            class="video-stream">
+
+    </div>
+
+</div>
+
+<div class="summary-grid">
+
+    <div class="summary-box">
+
+        <h3>Model</h3>
+
+        <h2>YOLOv7</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Kelas</h3>
+
+        <h2>2</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Objek</h3>
+
+        <h2>Babi Hutan & Tikus</h2>
+
+    </div>
+
+    <div class="summary-box">
+
+        <h3>Status</h3>
+
+        <h2>Realtime</h2>
+
+    </div>
+
+</div>
+
+<div class="page-card">
+
+    <h2>Petunjuk</h2>
+
+    <ul class="info-list">
+
+        <li>Pastikan kamera telah terhubung.</li>
+
+        <li>Untuk kamera HP gunakan aplikasi IP Webcam atau DroidCam.</li>
+
+        <li>Laptop dan HP harus berada pada jaringan WiFi yang sama.</li>
+
+        <li>Bounding box dan confidence akan muncul otomatis ketika objek terdeteksi.</li>
+
+    </ul>
+
+</div>
+
+<script>
+
+function changeCamera(type){
+
+    let img=document.getElementById("live-stream");
+
+    if(type==="pc"){
+
+        img.src="/realtime_pc?"+new Date().getTime();
+
+    }
+
+    else{
+
+        img.src="/realtime_hp?"+new Date().getTime();
+
+    }
+
+}
+
+</script>
+
+{% endblock %}
